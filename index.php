@@ -17,8 +17,8 @@
         <input type="submit">
         <input type="text" placeholder="rua"    disabled name="rua"    value="<?php echo $address->logradouro ?>">
         <input type="text" placeholder="bairro" disabled name="bairro" value="<?php echo $address->bairro ?>">
-        <input type="text" placeholder="cidade" disabled name="cidade" value="<?php echo $address->localidade ?>">
-        <input type="text" placeholder="estado" disabled name="estado" value="<?php echo $address->uf ?>">
+        <input type="text" placeholder="cidade" disabled name="cidade" value="<?php echo $address->localidade ?? $address->cidade ?>">
+        <input type="text" placeholder="estado" disabled name="estado" value="<?php echo $address->uf ?? $address->estado_info->nome ?>">
     </form>
 </body>
 </html>
