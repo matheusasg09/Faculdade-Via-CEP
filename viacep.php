@@ -6,7 +6,14 @@ function getAddress()
     $cep = filterCep($cep);
 
     if (isCep($cep)) {
-      $address = getAddressViaCep($cep);
+      $response = getAddressViaCep($cep);
+      $address = (object) [
+        'cep' => $response->cep,
+        'logradouro' => $response->logradouro,
+        'bairro' => $response->bairro,
+        'cidade' => $response->cidade,
+        'uf' => $response->uf,
+      ];
       if (property_exists($address, 'erro')) {
         $address = addressEmpty();
         $address->cep = 'CEP não encontrado"';
